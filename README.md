@@ -5,7 +5,7 @@
 - Khởi tạo git ✅
 - Format code: thống nhất một dạng format ✅
 - Deploy lên server ✅
-- Tổ chức thư mục
+- Tổ chức thư mục ✅
 - Library cần dùng trong dự án
 
 ### Khởi tạo git
@@ -47,3 +47,14 @@ npm run build
     7.3 Constants
 8. Services (để call api)
 
+### Library cần dùng trong dự án
+
+## Kiểm tra xem thư viện nào bị out dated
+```bash
+npm outdated
+```
+```bash
+npx npm-check-updates -i
+# chọn thì nhấn space
+# enter để tiếp tục
+```
