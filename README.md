@@ -49,6 +49,14 @@ npm run build
 
 ### Library cần dùng trong dự án
 
+- react-router
+- tailwindcss
+- redux
+- formik
+- lucide-react (Icon)
+- Library UI chưa sử dụng (...)
+- axios (call api - Đỡ cực hơn khi sử dụng so với fetch)
+
 ## Kiểm tra xem thư viện nào bị out dated
 ```bash
 npm outdated
