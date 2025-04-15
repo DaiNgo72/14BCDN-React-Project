@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-
+  plugins: [react(), tailwindcss()],
 
   server: {
     port: 8888,
@@ -12,5 +12,5 @@ export default defineConfig({
     open: true,
     // Cho phép truy cập cùng mạng LAN
     host: true,
-  }
-})
+  },
+});

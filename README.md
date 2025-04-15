@@ -49,9 +49,9 @@ npm run build
 
 ### Library cần dùng trong dự án
 
-- react-router
-- tailwindcss
-- redux
+- react-router ✅
+- tailwindcss ✅
+- redux 
 - formik
 - lucide-react (Icon)
 - Library UI chưa sử dụng (...)
