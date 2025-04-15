@@ -57,6 +57,9 @@ npm run build
 - Library UI chưa sử dụng (...)
 - axios (call api - Đỡ cực hơn khi sử dụng so với fetch)
 
+### Lệnh để cài đặt nhiều thư viện cùng một lúc 
+npm i react-router @reduxjs/toolkit react-redux tailwindcss formik zod lucide-react axios
+
 ## Kiểm tra xem thư viện nào bị out dated
 ```bash
 npm outdated
@@ -66,3 +69,6 @@ npx npm-check-updates -i
 # chọn thì nhấn space
 # enter để tiếp tục
 ```
+## Ý tưởng
+
+- Chọn mode của router là `data`
