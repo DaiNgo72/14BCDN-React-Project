@@ -72,3 +72,15 @@ npx npm-check-updates -i
 ## Ý tưởng
 
 - Chọn mode của router là `data`
+
+## Buoi 2:
+- flow 1: đăng ký xong thì điều hướng người dùng sang đăng nhập luôn
+- flow 2: đăng ký xong thì tự login vào luôn
+
+## Lazy load
+## Code spliting
+
+- chỉ download những file cần thiết, chắc chắn người sẽ vào.
+
+## Suspense
+- Suspense là một component trong React cho phép bạn "đợi" cho một số phần của giao diện người dùng được tải trước khi hiển thị chúng.
