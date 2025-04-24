@@ -123,3 +123,15 @@ png: vỡ nét
 
 ## Suspense
 - Suspense là một component trong React cho phép bạn "đợi" cho một số phần của giao diện người dùng được tải trước khi hiển thị chúng.
+
+## Trong qúa trình xử lý conflict thì các bạn chọn nhầm code, khôi phục cái trước đó lại
+
+## Huỷ quá trình xử lý conflict. sẽ làm lại từ đầu
+
+```bash
+git merge --abort
+```
+
+```bash
+git merge --continue
+```
