@@ -9,18 +9,24 @@
 - Library cần dùng trong dự án
 
 ### Khởi tạo git
+>
 > git init
+
 - tạo repo ở github và đẩy code lên
 
 ### Format code
+
 - sử dụng thư viện prettier
+
 ```bash
 npm i prettier
 ```
+
 - Tạo file .prettierrc
 - Lên prettier playground để lấy thông tin cấu hình cho prettier. [prettier playground](https://prettier.io/playground/)
 
 ### Deploy lên server
+
 - câu lệnh gì để có thể cài thư viện
 
 ```bash
@@ -41,7 +47,7 @@ npm run build
 4. Router
 5. Store
 6. Hooks - (hiện tại thì ít sử dụng)
-7. Common 
+7. Common
     7.1 Utils
     7.2 Helpers
     7.3 Constants
@@ -51,29 +57,62 @@ npm run build
 
 - react-router ✅
 - tailwindcss ✅
-- redux 
+- redux ✅
 - formik
 - lucide-react (Icon)
 - Library UI chưa sử dụng (...)
 - axios (call api - Đỡ cực hơn khi sử dụng so với fetch)
 
-### Lệnh để cài đặt nhiều thư viện cùng một lúc 
+### Lệnh để cài đặt nhiều thư viện cùng một lúc
+
 npm i react-router @reduxjs/toolkit react-redux tailwindcss formik zod lucide-react axios
 
 ## Kiểm tra xem thư viện nào bị out dated
+
 ```bash
 npm outdated
 ```
+
 ```bash
 npx npm-check-updates -i
 # chọn thì nhấn space
 # enter để tiếp tục
 ```
+
 ## Ý tưởng
 
 - Chọn mode của router là `data`
 
-## Buoi 2:
+
+## Buổi 2
+
+1. Setup font chữ
+
+- cài đặt: npm i @fontsource/inter
+- thêm font vào project: `https://www.npmjs.com/package/@fontsource/inter`
+
+2. Tạo component Icon cho dự án
+
+- vì sao lại đưa file image vào trong icons không để ở pulic? 
+- vì sao không icon thường sử dụng định dạng svg không phải png?
+svg: vector -> khi các zoom +/- thì browser nó sẽ tính toán lại vector đó để show lên giao diện. Không bị vỡ nét
+png: vỡ nét
+
+
+### React `memo`
+
+- chỉ sử dụng với icon
+- hoặc khi component nào mà các bạn thấy gây ảnh hưởng đến performance
+
+### Người mới
+
+1. Mục tiêu
+- thành thục một thư viện
+
+2. Sử dụng nhiều thư viện để so sánh sự khác nhau
+
+
+## Buoi 3:
 - flow 1: đăng ký xong thì điều hướng người dùng sang đăng nhập luôn
 - flow 2: đăng ký xong thì tự login vào luôn
 

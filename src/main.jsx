@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+// Link vào global style
+import "@fontsource/inter";
+
 // Setup react-router với data-mode
 import { RouterProvider } from "react-router";
 import { router } from "./router/router";
