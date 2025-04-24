@@ -3,6 +3,12 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router";
 import z from "zod";
 import { Input } from "../components/input";
+import { manageLocalStorage } from "../common/utils";
+import { KEY_ACCESS_TOKEN } from "../common/constants";
+import { axiosWithAuth } from "../service/config";
+import { getProfileAPI } from "../service/user.service";
+import { useDispatch } from "react-redux";
+import { setUser } from "../store/user.slice";
 
 function ErrorMessage({ message }) {
   return (
@@ -22,6 +28,7 @@ const LoginSchema = z.object({
 
 export default function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -37,6 +44,30 @@ export default function Login() {
         })
         .then((response) => {
           console.log("Login successful:", response.data);
+
+          // 1. Lưu token lại -> localStorage
+          manageLocalStorage.set(
+            KEY_ACCESS_TOKEN,
+            response.data.content.accessToken,
+          );
+
+          // 2. Gọi api getProfile để lưu vào redux -> chứng mình là user đã đăng nhập vào rồi
+
+          getProfileAPI().then((response) => {
+            // đẩy dữ liệu này lên trên redux
+            console.log(response.data.content);
+
+            dispatch(setUser(response.data.content));
+
+            // setUser(response.data.content)
+
+            /**
+             * {
+             *    type: "userSlice/setUser"
+             *    payload: response.data.content
+             * }
+             */
+          });
 
           // Login thành công thì về trang home.
           navigate("/");

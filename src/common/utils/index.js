@@ -5,3 +5,5 @@ export function mergeClassNames(...classes) {
 export function sum(a, b) {
   return a + b;
 }
+
+export { manageLocalStorage } from "./local-storage";
