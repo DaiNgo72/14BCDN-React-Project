@@ -9,6 +9,7 @@ import { BaseTemplate } from "../templates/base/base.template";
 // - khi qua trong login thì chúng ta mới tải file js về
 const Login = lazy(() => import("../pages/login"));
 const Register = lazy(() => import("../pages/register"));
+const ProductDetail = lazy(() => import("../pages/product-detail"));
 
 export const router = createBrowserRouter([
   {
@@ -19,8 +20,8 @@ export const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "/card-detail",
-        element: <h1>Card Detail Page</h1>,
+        path: "/product-detail/:id",
+        Component: ProductDetail,
       },
     ],
   },

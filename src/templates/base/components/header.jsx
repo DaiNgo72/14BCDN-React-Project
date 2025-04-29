@@ -1,8 +1,13 @@
 import { ShoppingCart } from "lucide-react";
-import { Avatar } from "../../../components/avatar";
 import { useSelector } from "react-redux";
-import { Link } from "react-router";
-
+import { KEY_ACCESS_TOKEN } from "../../../common/constants";
+import { manageLocalStorage } from "../../../common/utils";
+import { USER_FETCH_STATUS } from "../../../store/user.slice";
+import { Authen } from "./authen";
+import { Profile } from "./profile";
+import { ProfileSkeleton } from "./profile.skeleton";
+// alt + shift + o
+// option + shift + o
 function LogoIcon() {
   return (
     <>
@@ -15,11 +20,37 @@ function LogoIcon() {
   );
 }
 
+/**
+ * 1.
+ * token trong localStorage (v)
+ * user trong redux = null
+ * => suy luận: đang call api nên hiển thị skeleton
+ *
+ * 2.
+ * token trong localStorage (x)
+ * user trong redux = null
+ * => người dùng chưa từng login
+ *
+ * 3.
+ * token trong localStorage (v)
+ * user trong redux != null
+ * => suy luận: đã login vào thành công.
+ *
+ * - Token -
+ * cũng có thời gian hết hạn
+ *
+ */
+
 export function Header() {
-  // lấy state lưu trên redux về
+  const userFetchStatus = useSelector((store) => {
+    return store.userReducer.userFetchStatus;
+  });
+
   const user = useSelector((store) => {
     return store.userReducer.user;
   });
+
+  const token = manageLocalStorage.get(KEY_ACCESS_TOKEN);
 
   return (
     <>
@@ -36,25 +67,24 @@ export function Header() {
             </span>
           </div>
 
-          {user !== null ? (
-            <div className="flex items-center gap-2">
-              <p>{user.name}</p>
+          {/* Có user ở redux */}
+          {user && <Profile />}
 
-              <Avatar>{user.name.slice(0, 1)}</Avatar>
-            </div>
-          ) : (
-            <div>
-              <Link to="/login" className="border border-white px-2 py-1">
-                Login
-              </Link>
-              <Link
-                to="/register"
-                className="border border-white border-l-0 px-2 py-1"
-              >
-                Register
-              </Link>
-            </div>
+          {/* Không có user ở redux + có token */}
+          {!user && token && (
+            <>
+              {userFetchStatus === USER_FETCH_STATUS.FETCHING && (
+                <ProfileSkeleton />
+              )}
+
+              {userFetchStatus === USER_FETCH_STATUS.SUCCESS && <Profile />}
+
+              {userFetchStatus === USER_FETCH_STATUS.EXPIRED && <Authen />}
+            </>
           )}
+          
+          {/* Không có user ở redux + khoong có token */}
+          {!user && !token && <Authen />}
         </div>
       </header>
     </>

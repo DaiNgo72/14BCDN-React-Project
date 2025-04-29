@@ -135,3 +135,22 @@ git merge --abort
 ```bash
 git merge --continue
 ```
+
+## AccessToken
+- chuỗi string tượng trưng cho username + password
+
+## Hiển thị lại thông tin của user - Khôi phục lại trạng thái login lúc đó của người dùng
+- Khi vừa vào trang web
+1. Kiểm tra localStorage có token hay chưa
+2. Gọi api để lấy thông tin của người dùng
+3. Đẩy thông tin của user lên redux
+
+## Khi code component
+- Hãy để người dùng quyết định kích thước width của component chúng ta.
+
+Những thuộc tính không nên xét cứng bên trong component:
+- width
+- margin
+
+- Xây dựng props dựa trên UI ✅
+- Không xây dựng props dựa trên API trả về ❌
