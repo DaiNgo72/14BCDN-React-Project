@@ -13,6 +13,9 @@ export const manageLocalStorage = {
       return null;
     }
   },
+  remove(key) {
+    localStorage.removeItem(key);
+  },
   clear() {
     localStorage.clear();
   },

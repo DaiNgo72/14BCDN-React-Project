@@ -5,3 +5,12 @@ export function getProfileAPI() {
     method: "post",
   });
 }
+
+export function changePasswordAPI(newPassword) {
+  return axiosWithAuth("/api/Users/changePassword", {
+    method: "post",
+    data: {
+      newPassword: newPassword,
+    },
+  });
+}

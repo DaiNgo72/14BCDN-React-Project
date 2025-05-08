@@ -170,3 +170,13 @@ Những thuộc tính không nên xét cứng bên trong component:
 ## Order
 - Lưu tại redux: cập nhật lại giao diện khi có sự thay đổi về state
 - Lưu tại localStorage: không bị mất khi refresh lại trang
+
+## refresh token
+- Khi token hết hạn thì sẽ gọi api để lấy lại token mới
+
+
+## Fetch
+- body
+
+## Axios
+- data

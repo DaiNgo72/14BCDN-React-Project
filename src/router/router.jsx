@@ -10,6 +10,7 @@ import { BaseTemplate } from "../templates/base/base.template";
 const Login = lazy(() => import("../pages/login"));
 const Register = lazy(() => import("../pages/register"));
 const ProductDetail = lazy(() => import("../pages/product-detail"));
+const ChangePassword = lazy(() => import("../pages/change-password"));
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
         // match: "/product-detail/1", "/product-detail/2", "/product-detail/3", "/product-detail/abcxyz"
         path: "/product-detail/:id",
         Component: ProductDetail,
+      },
+      {
+        path: "/change-password",
+        Component: ChangePassword,
       },
     ],
   },

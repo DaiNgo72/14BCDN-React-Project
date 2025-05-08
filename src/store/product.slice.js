@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { manageLocalStorage } from "../common/utils";
 
+const cartsLocalStorage = manageLocalStorage.get("carts") || [];
+
 const productSlice = createSlice({
   name: "product",
   initialState: {
     carts: [
+      ...cartsLocalStorage,
       /**
        * {
        *  id: 1,
@@ -23,7 +26,21 @@ const productSlice = createSlice({
      * }
      */
     addToCart(state, action) {
-      const newCarts = [...state.carts, action.payload];
+      const productIndex = state.carts.findIndex((item) => {
+        return item.id === action.payload.id;
+      });
+
+      let newCarts = [...state.carts];
+
+      if (productIndex !== -1) {
+        // Nếu sản phẩm đã có trong giỏ hàng
+        // Cập số lượng mới nhất
+        newCarts[productIndex] = action.payload;
+      } else {
+        // Nếu sản phẩm chưa có trong giỏ hàng
+        // Thêm sản phẩm vào giỏ hàng
+        newCarts.push(action.payload);
+      }
 
       // Lưu vào redux
       state.carts = newCarts;
