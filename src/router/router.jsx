@@ -20,6 +20,8 @@ export const router = createBrowserRouter([
         Component: Home,
       },
       {
+        // :id là dynamic segment
+        // match: "/product-detail/1", "/product-detail/2", "/product-detail/3", "/product-detail/abcxyz"
         path: "/product-detail/:id",
         Component: ProductDetail,
       },

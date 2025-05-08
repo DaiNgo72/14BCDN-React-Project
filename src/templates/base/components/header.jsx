@@ -50,6 +50,10 @@ export function Header() {
     return store.userReducer.user;
   });
 
+  const numberOfProduct = useSelector((store) => {
+    return store.productReducer.carts.length;
+  });
+
   const token = manageLocalStorage.get(KEY_ACCESS_TOKEN);
 
   return (
@@ -63,7 +67,7 @@ export function Header() {
           <div className="relative flex items-center">
             <ShoppingCart />
             <span className="absolute left-1/2 bottom-1/2 bg-red-500 rounded-full w-5 h-5 text-center text-white text-xs leading-5">
-              0
+              {numberOfProduct}
             </span>
           </div>
 
@@ -82,7 +86,7 @@ export function Header() {
               {userFetchStatus === USER_FETCH_STATUS.EXPIRED && <Authen />}
             </>
           )}
-          
+
           {/* Không có user ở redux + khoong có token */}
           {!user && !token && <Authen />}
         </div>

@@ -154,3 +154,19 @@ Những thuộc tính không nên xét cứng bên trong component:
 
 - Xây dựng props dựa trên UI ✅
 - Không xây dựng props dựa trên API trả về ❌
+
+
+## Vấn đề
+- Home -> /product-detail/1 (Mount)
+-> call api lấy thông tin của product
+
+- /product-detail/1 -> /product-detail/2
+- ProductDetail -> ProductDetail (Không còn mount lại)
+-> Không gọi api nữa
+
+## Bugs
+- scrollTop không về đầu trang
+
+## Order
+- Lưu tại redux: cập nhật lại giao diện khi có sự thay đổi về state
+- Lưu tại localStorage: không bị mất khi refresh lại trang
